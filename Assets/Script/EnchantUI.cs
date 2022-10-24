@@ -17,7 +17,7 @@ public class EnchantUI : MonoBehaviour
         equipName = "³ª¹« ¸ùµÕÀÌ";
         enchantLevel = 0;
 
-        eventHandler.OnLevelChanged.Subscribe(level =>
+        eventHandler.EnchantLevelRx.Subscribe(level =>
         {
             enchantLevel = level;        
 

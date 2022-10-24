@@ -6,6 +6,10 @@ using Random = UnityEngine.Random;
 
 public class EventHandlerRx : MonoBehaviour
 {
+    private ReactiveProperty<int> enchantLevelProperty = new ReactiveProperty<int>(0);
+    public ReactiveProperty<int> EnchantLevelRx { get { return enchantLevelProperty; } private set { enchantLevelProperty = value; } }
+    public int EnchantLevel { get { return enchantLevelProperty.Value; } set { enchantLevelProperty.Value = value; } }
+
     private Subject<int> enchantLevelSubject = new Subject<int>();
 
     private int currentEnchantLevel = 0;
@@ -31,6 +35,7 @@ public class EventHandlerRx : MonoBehaviour
             Debug.Log($"°á°ú : °­È­ ½ÇÆÐ!! È®·ü : {successProb}  ´çÃ· : {result}");
         }
 
-        enchantLevelSubject.OnNext(currentEnchantLevel);
+        EnchantLevel = currentEnchantLevel;
+//        enchantLevelSubject.OnNext(currentEnchantLevel);
     }
 }
